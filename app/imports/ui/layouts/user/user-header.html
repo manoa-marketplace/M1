@@ -1,4 +1,5 @@
 <template name="User_Header">
+<<<<<<< HEAD
   <!--<div class="ui top fixed borderless inverted teal menu">-->
   <!--<div class="ui container">-->
   <!--<div class="item"><h1>UHM Exchange</h1></div>-->
@@ -37,6 +38,16 @@
         </div>
         <button class="ui button" type="submit" style="border: 1px solid #e0e1e2;border-top-left-radius: 0;border-bottom-left-radius: 0">Search</button>
       </form>
+=======
+  <div class="ui top fixed borderless inverted teal menu">
+    <div class="ui container">
+      <div class="item"><h1>Manoa Marketplace</h1></div>
+      <a class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=routeUserName}}">Profile</a>
+      <a class="{{isActiveRoute "Filter_Page"}} item" href="{{pathFor "Filter_Page" username=routeUserName}}">Filter</a>
+      <a class="{{isActiveRoute "Home_Page"}} item" href="{{pathFor "Home_Page" username=routeUserName}}">Home</a>
+      <a class="{{isActiveRoute "Admin_Home_Page"}} item" href="{{pathFor "Admin_Home_Page" username=routeUserName}}">Admin home</a>
+      <div class="right aligned item">{{> Cas_Login }}</div>
+>>>>>>> Home-and-Profile
     </div>
   </div>
 </template>

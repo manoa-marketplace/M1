@@ -60,6 +60,22 @@ userRoutes.route('/profile', {
   },
 });
 
+export const homePageRouteName = 'Home_Page';
+userRoutes.route('/home', {
+  name: homePageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: homePageRouteName });
+  },
+});
+
+export const adminHomePageRouteName = 'Admin_Home_Page';
+userRoutes.route('/admin-home', {
+  name: adminHomePageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: adminHomePageRouteName });
+  },
+});
+
 export const filterPageRouteName = 'Filter_Page';
 userRoutes.route('/filter', {
   name: filterPageRouteName,
