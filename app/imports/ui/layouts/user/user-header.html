@@ -1,16 +1,16 @@
 <template name="User_Header">
   <!--<div class="ui top fixed borderless inverted teal menu">-->
-    <!--<div class="ui container">-->
-      <!--<div class="item"><h1>UHM Exchange</h1></div>-->
-      <!--<a class="{{isActiveRoute "Post_Item_Page"}} item" href="{{pathFor "Post_Item_Page" username=routeUserName}}">Post an Item</a>-->
-      <!--<a class="{{isActiveRoute "Browse_Page"}} item" href="{{pathFor "Browse_Page" username=routeUserName}}">Browse</a>-->
-      <!--<a class="{{isActiveRoute "Categories_Page"}} item" href="{{pathFor "Categories_Page" username=routeUserName}}">Categories</a>-->
-      <!--<a class="{{isActiveRoute "Contact_Seller_Page"}} item" href="{{pathFor "Contact_Seller_Page" username=routeUserName}}">Contact Seller</a>-->
-      <!--<div class="right aligned item">{{> Cas_Login }}</div>-->
-    <!--</div>-->
+  <!--<div class="ui container">-->
+  <!--<div class="item"><h1>UHM Exchange</h1></div>-->
+  <!--<a class="{{isActiveRoute "Post_Item_Page"}} item" href="{{pathFor "Post_Item_Page" username=routeUserName}}">Post an Item</a>-->
+  <!--<a class="{{isActiveRoute "Browse_Page"}} item" href="{{pathFor "Browse_Page" username=routeUserName}}">Browse</a>-->
+  <!--<a class="{{isActiveRoute "Categories_Page"}} item" href="{{pathFor "Categories_Page" username=routeUserName}}">Categories</a>-->
+  <!--<a class="{{isActiveRoute "Contact_Seller_Page"}} item" href="{{pathFor "Contact_Seller_Page" username=routeUserName}}">Contact Seller</a>-->
+  <!--<div class="right aligned item">{{> Cas_Login }}</div>-->
+  <!--</div>-->
   <!--</div>-->
 
-  <div style="width: 100%;height: 100px; background-image: url('/images/preview.png');background-size: cover;">
+  <div style="width: 100%;height: 100px; background-image: url('/images/preview.png');background-size: cover;min-width:551px">
     <div style="float:right;margin-top: 10px; margin-right: 10px">
       {{> Cas_Login }}
     </div>
@@ -20,16 +20,16 @@
 
   </div>
   <div class="ui inverted stackable teal menu" style="border-radius: 0;background-color: #024731; margin-top: 0;">
-
     <a class="item" href="{{pathFor "Post_Item_Page" username=routeUserName}}">
-      List an Item
+    List an Item
     </a>
     <a class="item" href="{{pathFor "Browse_Page" username=routeUserName}}"><!--TODO proper path-->
-      View your Listings
+    View your Listings
     </a>
     <a class="item" href="{{pathFor "Categories_Page" username=routeUserName}}">
-      Browse Categories
+    Browse Categories
     </a>
+
     <div class="right item" style="padding-top: 12px; padding-bottom: 0">
       <form class="ui form search-form">
         <div class="field" style="float: left;">
