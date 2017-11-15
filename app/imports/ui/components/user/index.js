@@ -1,2 +1,2 @@
-import './interests-form-field.html';
-import './interests-form-field.js';
+import './categories-form-field.html';
+import './categories-form-field.js';

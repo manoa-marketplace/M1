@@ -1,9 +1,11 @@
 <template name="User_Header">
   <div class="ui top fixed borderless inverted teal menu">
     <div class="ui container">
-      <div class="item"><h1>BowFolios</h1></div>
-      <a class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=routeUserName}}">Profile</a>
-      <a class="{{isActiveRoute "Filter_Page"}} item" href="{{pathFor "Filter_Page" username=routeUserName}}">Filter</a>
+      <div class="item"><h1>UHM Exchange</h1></div>
+      <a class="{{isActiveRoute "Post_Item_Page"}} item" href="{{pathFor "Post_Item_Page" username=routeUserName}}">Post an Item</a>
+      <a class="{{isActiveRoute "Browse_Page"}} item" href="{{pathFor "Browse_Page" username=routeUserName}}">Browse</a>
+      <a class="{{isActiveRoute "Categories_Page"}} item" href="{{pathFor "Categories_Page" username=routeUserName}}">Categories</a>
+      <a class="{{isActiveRoute "Contact_Seller_Page"}} item" href="{{pathFor "Contact_Seller_Page" username=routeUserName}}">Contact Seller</a>
       <div class="right aligned item">{{> Cas_Login }}</div>
     </div>
   </div>

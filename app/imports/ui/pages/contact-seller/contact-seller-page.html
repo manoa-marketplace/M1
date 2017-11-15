@@ -1,0 +1,48 @@
+<template name="Contact_Seller_Page">
+
+  {{#if Template.subscriptionsReady}}
+
+  <div class="ui text container segment">
+    <div class="ui dividing header">
+      Post an item on UHM Exchange
+    </div>
+    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+
+      <div class="field">
+        {{> Text_Form_Control label="Item Name" placeholder="Item Name" errorMessage=(fieldError "item name")}}
+        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" errorMessage=(fieldError "picture")}}
+      </div>
+
+      {{> TextArea_Form_Control label="Description" placeholder="Description of your item." errorMessage=(fieldError "description")}}
+
+      <div class="field">
+        {{> Select_Form_Control label="Categories" options=categories errorMessage=(fieldError "categories") multiple=true }}
+      </div>
+
+      <div class="field">
+        {{> Text_Form_Control label="Sale Price" placeholder="$0.00" errorMessage=(fieldError "sale price")}}
+      </div>
+
+      <div class="field">
+        {{> Text_Form_Control label="Email Address" placeholder="foo@bar.com" errorMessage=(fieldError "email address")}}
+      </div>
+
+      <div class="field">
+        {{> Text_Form_Control label="Phone Number (Optional)" placeholder="XXX-XXX-XXXX" errorMessage=(fieldError "phone number")}}
+      </div>
+
+      <div class="field">
+        <p>By posting a listing on UHM Exchange, you signify an explicit agreement to UHM Exchange's terms of use.</p>
+      </div>
+
+      <button class="ui primary button" type="submit">Post Listing</button>
+      {{#if displaySuccessMessage}}
+      <div class="ui success message">
+        <p>Your Item was listed successfully.</p>
+      </div>
+      {{/if}}
+    </form>
+  </div>
+
+  {{/if}}
+</template>
