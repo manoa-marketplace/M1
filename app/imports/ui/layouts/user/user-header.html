@@ -1,22 +1,11 @@
 <template name="User_Header">
-<<<<<<< HEAD
-  <!--<div class="ui top fixed borderless inverted teal menu">-->
-  <!--<div class="ui container">-->
-  <!--<div class="item"><h1>UHM Exchange</h1></div>-->
-  <!--<a class="{{isActiveRoute "Post_Item_Page"}} item" href="{{pathFor "Post_Item_Page" username=routeUserName}}">Post an Item</a>-->
-  <!--<a class="{{isActiveRoute "Browse_Page"}} item" href="{{pathFor "Browse_Page" username=routeUserName}}">Browse</a>-->
-  <!--<a class="{{isActiveRoute "Categories_Page"}} item" href="{{pathFor "Categories_Page" username=routeUserName}}">Categories</a>-->
-  <!--<a class="{{isActiveRoute "Contact_Seller_Page"}} item" href="{{pathFor "Contact_Seller_Page" username=routeUserName}}">Contact Seller</a>-->
-  <!--<div class="right aligned item">{{> Cas_Login }}</div>-->
-  <!--</div>-->
-  <!--</div>-->
 
   <div style="width: 100%;height: 100px; background-image: url('/images/preview.png');background-size: cover;min-width:551px">
     <div style="float:right;margin-top: 10px; margin-right: 10px">
       {{> Cas_Login }}
     </div>
     <div class="ui center aligned container" style="padding-top: 15px">
-      <p class="ui text" style="color: #fff; font-size: 48px;text-shadow: -2px 0 #024731, 0 2px #024731, 2px 0 #024731, 0 -2px #024731;">Manoa Marketplace</p>
+      <a href="{{pathFor "Home_Page" username=routeUserName}}"><p class="ui text" style="color: #fff; font-size: 48px;text-shadow: -2px 0 #024731, 0 2px #024731, 2px 0 #024731, 0 -2px #024731;">Manoa Marketplace</p></a>
     </div>
 
   </div>
@@ -30,6 +19,9 @@
     <a class="item" href="{{pathFor "Categories_Page" username=routeUserName}}">
     Browse Categories
     </a>
+    <a class="item" href="{{pathFor "Admin_Home_Page" username=routeUserName}}">
+    *Admin Page*
+    </a>
 
     <div class="right item" style="padding-top: 12px; padding-bottom: 0">
       <form class="ui form search-form">
@@ -38,16 +30,7 @@
         </div>
         <button class="ui button" type="submit" style="border: 1px solid #e0e1e2;border-top-left-radius: 0;border-bottom-left-radius: 0">Search</button>
       </form>
-=======
-  <div class="ui top fixed borderless inverted teal menu">
-    <div class="ui container">
-      <div class="item"><h1>Manoa Marketplace</h1></div>
-      <a class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=routeUserName}}">Profile</a>
-      <a class="{{isActiveRoute "Filter_Page"}} item" href="{{pathFor "Filter_Page" username=routeUserName}}">Filter</a>
-      <a class="{{isActiveRoute "Home_Page"}} item" href="{{pathFor "Home_Page" username=routeUserName}}">Home</a>
-      <a class="{{isActiveRoute "Admin_Home_Page"}} item" href="{{pathFor "Admin_Home_Page" username=routeUserName}}">Admin home</a>
-      <div class="right aligned item">{{> Cas_Login }}</div>
->>>>>>> Home-and-Profile
     </div>
+
   </div>
 </template>
