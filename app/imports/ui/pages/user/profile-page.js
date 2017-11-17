@@ -4,12 +4,14 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Categories } from '/imports/api/categories/CategoryCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
+  this.subscribe(Categories.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
@@ -30,16 +32,15 @@ Template.Profile_Page.helpers({
   profile() {
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
-  interests() {
+  categories() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedInterests = profile.interests;
-    return profile && _.map(Interests.findAll(),
-            function makeInterestObject(interest) {
-              return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
-            });
+    const selectedCategories = profile.categories;
+    return profile && _.map(Categories.findAll(),
+        function makeCategoryObject(category) {
+          return { label: category.name, selected: _.contains(selectedCategories, category.name) };
+        });
   },
 });
-
 
 Template.Profile_Page.events({
   'submit .profile-data-form'(event, instance) {
@@ -53,10 +54,10 @@ Template.Profile_Page.events({
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;
     const bio = event.target.Bio.value;
-    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    const interests = _.map(selectedInterests, (option) => option.value);
+    const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
+    const categories = _.map(selectedCategories, (option) => option.value);
 
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
+    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, categories,
       username };
 
     // Clear out any old validation errors.
@@ -77,4 +78,3 @@ Template.Profile_Page.events({
     }
   },
 });
-

@@ -8,8 +8,8 @@ import { removeAllEntities } from '/imports/api/base/BaseUtilities';
 
 if (Meteor.isServer) {
   describe('CategoryCollection', function testSuite() {
-    const name = 'Software Engineering';
-    const description = 'Tools and techniques for team-based development of high quality software systems';
+    const name = 'Textbooks';
+    const description = 'Textbooks for UHM courses.';
     const defineObject = { name, description };
 
     before(function setup() {

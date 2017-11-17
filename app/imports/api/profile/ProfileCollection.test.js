@@ -2,31 +2,32 @@
 /* eslint-env mocha */
 
 import { Profiles } from '/imports/api/profile/ProfileCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
+import { Categories } from '/imports/api/categories/CategoryCollection';
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 import { removeAllEntities } from '/imports/api/base/BaseUtilities';
 
 if (Meteor.isServer) {
   describe('ProfileCollection', function testSuite() {
-    const interestName = 'Software Engineering';
-    const interestDescription = 'Tools for software development';
+    const categoryName = 'Software Engineering';
+    const categoryDescription = 'Tools for software development';
     const firstName = 'Philip';
     const lastName = 'Johnson';
     const username = 'johnson';
     const bio = 'I have been a professor of computer science at UH since 1990.';
-    const interests = [interestName];
+    const categories = [categoryName];
     const picture = 'http://philipmjohnson.org/headshot.jpg';
     const title = 'Professor Computer Science';
     const github = 'http://github.com/philipjohnson';
     const facebook = 'http://github.com/philipjohnson';
     const instagram = 'http://github.com/philipjohnson';
-    const defineObject = { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram };
+    const defineObject = { firstName, lastName, username, bio, categories, picture, title,
+      github, facebook, instagram };
 
     before(function setup() {
       removeAllEntities();
-      // Define a sample interest.
-      Interests.define({ name: interestName, description: interestDescription });
+      // Define a sample category.
+      Categories.define({ name: categoryName, description: categoryDescription });
     });
 
     after(function teardown() {
@@ -42,7 +43,7 @@ if (Meteor.isServer) {
       expect(doc.lastName).to.equal(lastName);
       expect(doc.username).to.equal(username);
       expect(doc.bio).to.equal(bio);
-      expect(doc.interests[0]).to.equal(interestName);
+      expect(doc.categories[0]).to.equal(categoryName);
       expect(doc.picture).to.equal(picture);
       expect(doc.title).to.equal(title);
       expect(doc.github).to.equal(github);
@@ -59,16 +60,16 @@ if (Meteor.isServer) {
       Profiles.removeIt(docID);
     });
 
-    it('#define (illegal interest)', function test() {
-      const illegalInterests = ['foo'];
-      const defineObject2 = { firstName, lastName, username, bio, interests: illegalInterests, picture, title,
+    it('#define (illegal category)', function test() {
+      const illegalCategories = ['foo'];
+      const defineObject2 = { firstName, lastName, username, bio, categories: illegalCategories, picture, title,
         github, facebook, instagram };
       expect(function foo() { Profiles.define(defineObject2); }).to.throw(Error);
     });
 
-    it('#define (duplicate interests)', function test() {
-      const duplicateInterests = [interestName, interestName];
-      const defineObject3 = { firstName, lastName, username, bio, interests: duplicateInterests, picture, title,
+    it('#define (duplicate categories)', function test() {
+      const duplicateCategories = [categoryName, categoryName];
+      const defineObject3 = { firstName, lastName, username, bio, categories: duplicateCategories, picture, title,
         github, facebook, instagram };
       expect(function foo() { Profiles.define(defineObject3); }).to.throw(Error);
     });

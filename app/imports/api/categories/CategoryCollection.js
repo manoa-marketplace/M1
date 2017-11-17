@@ -8,7 +8,7 @@ import { Tracker } from 'meteor/tracker';
 /** @module Category */
 
 /**
- * Represents a specific interest, such as "Software Engineering".
+ * Represents a specific category, such as "Textbooks".
  * @extends module:Base~BaseCollection
  */
 class CategoryCollection extends BaseCollection {
@@ -44,10 +44,10 @@ class CategoryCollection extends BaseCollection {
   }
 
   /**
-   * Returns the Category name corresponding to the passed interest docID.
-   * @param categoryID An interest docID.
-   * @returns { String } An interest name.
-   * @throws { Meteor.Error} If the interest docID cannot be found.
+   * Returns the Category name corresponding to the passed category docID.
+   * @param categoryID An category docID.
+   * @returns { String } An category name.
+   * @throws { Meteor.Error} If the category docID cannot be found.
    */
   findName(categoryID) {
     this.assertDefined(categoryID);
@@ -66,7 +66,7 @@ class CategoryCollection extends BaseCollection {
 
   /**
    * Throws an error if the passed name is not a defined Category name.
-   * @param name The name of an interest.
+   * @param name The name of an category.
    */
   assertName(name) {
     this.findDoc(name);
@@ -82,7 +82,7 @@ class CategoryCollection extends BaseCollection {
 
   /**
    * Returns the docID associated with the passed Category name, or throws an error if it cannot be found.
-   * @param { String } name An interest name.
+   * @param { String } name An category name.
    * @returns { String } The docID associated with the name.
    * @throws { Meteor.Error } If name is not associated with an Category.
    */
@@ -93,7 +93,7 @@ class CategoryCollection extends BaseCollection {
   /**
    * Returns the docIDs associated with the array of Category names, or throws an error if any name cannot be found.
    * If nothing is passed, then an empty array is returned.
-   * @param { String[] } names An array of interest names.
+   * @param { String[] } names An array of category names.
    * @returns { String[] } The docIDs associated with the names.
    * @throws { Meteor.Error } If any instance is not an Category name.
    */
