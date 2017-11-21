@@ -1,25 +1,16 @@
 <template name="Categories_Page">
-
   {{#if Template.subscriptionsReady}}
+    <div style="margin-top: 10px" class="ui container">
 
-  <div class="ui text container segment">
-    <div class="ui dividing header">
-      Select a category.
+      <form class="ui equal width form filter-data-form">
+        <div class="field">
+          {{> Select_Form_Control label="Categories" options=categories multiple=true }}
+        </div>
+        <button class="ui teal button" type="submit">Filter</button>
+      </form>
+
+      {{> Categories_Page_Directory profiles=profiles }}
+
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
-
-      <div class="field">
-        {{> Select_Form_Control label="Categories" options=categories errorMessage=(fieldError "categories") multiple=true }}
-      </div>
-
-      <button class="ui primary button" type="submit">Post Listing</button>
-      {{#if displaySuccessMessage}}
-      <div class="ui success message">
-        <p>Search completed.</p>
-      </div>
-      {{/if}}
-    </form>
-  </div>
-
   {{/if}}
 </template>

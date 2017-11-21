@@ -2,35 +2,35 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
+import { Categories } from '/imports/api/categories/CategoryCollection';
 
-const selectedInterestsKey = 'selectedInterests';
+const selectedCategoriesKey = 'selectedCategories';
 
 Template.Filter_Page.onCreated(function onCreated() {
-  this.subscribe(Interests.getPublicationName());
+  this.subscribe(Categories.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
-  this.messageFlags.set(selectedInterestsKey, undefined);
+  this.messageFlags.set(selectedCategoriesKey, undefined);
 });
 
 Template.Filter_Page.helpers({
   profiles() {
-    // Initialize selectedInterests to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
-      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
+    // Initialize selectedCategories to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedCategoriesKey)) {
+      Template.instance().messageFlags.set(selectedCategoriesKey, _.map(Categories.findAll(), category => category.name));
     }
-    // Find all profiles with the currently selected interests.
+    // Find all profiles with the currently selected categories.
     const allProfiles = Profiles.findAll();
-    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
-    return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    const selectedCategories = Template.instance().messageFlags.get(selectedCategoriesKey);
+    return _.filter(allProfiles, profile => _.intersection(profile.categories, selectedCategories).length > 0);
   },
 
-  interests() {
-    return _.map(Interests.findAll(),
-        function makeInterestObject(interest) {
+  categories() {
+    return _.map(Categories.findAll(),
+        function makeInterestObject(category) {
           return {
-            label: interest.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
+            label: category.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedCategoriesKey), category.name),
           };
         });
   },
@@ -39,8 +39,8 @@ Template.Filter_Page.helpers({
 Template.Filter_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
+    const selectedOptions = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedCategoriesKey, _.map(selectedOptions, (option) => option.value));
   },
 });
 

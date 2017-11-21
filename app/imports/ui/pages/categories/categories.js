@@ -1,29 +1,46 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { _ } from 'meteor/underscore';
+import { Profiles } from '/imports/api/profile/ProfileCollection';
+import { Categories } from '/imports/api/categories/CategoryCollection';
 
-const displaySuccessMessage = 'displaySuccessMessage';
-const displayErrorMessages = 'displayErrorMessages';
+const selectedCategoriesKey = 'selectedCategories';
 
-Template.Profile_Page.onCreated(function onCreated() {
+Template.Categories_Page.onCreated(function onCreated() {
+  this.subscribe(Categories.getPublicationName());
+  this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
-  this.messageFlags.set(displaySuccessMessage, false);
-  this.messageFlags.set(displayErrorMessages, false);
+  this.messageFlags.set(selectedCategoriesKey, undefined);
 });
 
 Template.Categories_Page.helpers({
-  successClass() {
-    return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
+  profiles() {
+    // Initialize selectedCategories to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedCategoriesKey)) {
+      Template.instance().messageFlags.set(selectedCategoriesKey, _.map(Categories.findAll(), category => category.name));
+    }
+    // Find all profiles with the currently selected categories.
+    const allProfiles = Profiles.findAll();
+    const selectedCategories = Template.instance().messageFlags.get(selectedCategoriesKey);
+    return _.filter(allProfiles, profile => _.intersection(profile.categories, selectedCategories).length > 0);
   },
-  displaySuccessMessage() {
-    return Template.instance().messageFlags.get(displaySuccessMessage);
-  },
-  errorClass() {
-    return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+
+  categories() {
+    return _.map(Categories.findAll(),
+        function makeCategoryObject(category) {
+          return {
+            label: category.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedCategoriesKey), category.name),
+          };
+        });
   },
 });
 
-
 Template.Categories_Page.events({
-
+  'submit .filter-data-form'(event, instance) {
+    event.preventDefault();
+    const selectedOptions = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedCategoriesKey, _.map(selectedOptions, (option) => option.value));
+  },
 });
 
