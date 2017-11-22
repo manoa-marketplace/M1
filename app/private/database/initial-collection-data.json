@@ -90,6 +90,14 @@
           "picture": "/images/casanova.jpg"
         }
       ]
+    },
+    {
+      "name": "AdminCollection",
+      "contents": [
+        {
+          "name": "vnagoshi"
+        }
+      ]
     }
   ]
 }

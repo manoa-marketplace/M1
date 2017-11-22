@@ -11,5 +11,10 @@
       "popupHeight": 610
     },
     "initialDatabaseFileName": "database/initial-collection-data.json"
+  },
+   "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb://manoamarketplace:notyourconcern@ds117336.mlab.com:17336/manoamarketplace"
+    }
   }
 }

@@ -157,12 +157,16 @@
       </div>
     </div>
     <br/>
-    {{> Text_Form_Control label="Categories" placeholder="Clothing, furniture, books, etc" errorMessage=(fieldError "categories") optional=true}}
+    <div class="ui form">
+      {{> Text_Form_Control label="Categories" placeholder="Clothing, furniture, books, etc" errorMessage=(fieldError "categories") optional=true}}
+    </div>
     <div class="fields">
       <button class="ui primary button" type="submit">Add</button>
       <button class="ui primary button" type="submit">Remove</button>
     </div>
-    {{> Text_Form_Control label="User Name" placeholder="foo123" errorMessage=(fieldError "user") optional=true}}
+    <div class="ui form">
+      {{> Text_Form_Control label="User Name" placeholder="foo123" errorMessage=(fieldError "user") optional=true}}
+    </div>
     <button class="ui primary button" type="submit">Ban</button>
   </div>
 
