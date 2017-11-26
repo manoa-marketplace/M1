@@ -43,19 +43,16 @@ Template.Post_Item_Page.helpers({
 Template.Post_Item_Page.events({
   'submit .item-data-form'(event, instance) {
     event.preventDefault();
-    const firstName = event.target.First.value;
-    const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
+    const itemName = event.target.Item.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
-    const facebook = event.target.Facebook.value;
-    const instagram = event.target.Instagram.value;
-    const bio = event.target.Bio.value;
+    const description = event.target.Description.value;
+    const email = event.target.Email.value;
+    const askingPrice = event.target.AskingPrice.value;
     const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
     const categories = _.map(selectedCategories, (option) => option.value);
 
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, categories,
+    const updatedProfileData = { itemName, picture, description, email, askingPrice, categories,
       username };
 
     // Clear out any old validation errors.

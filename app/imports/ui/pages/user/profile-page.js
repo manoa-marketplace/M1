@@ -45,20 +45,18 @@ Template.Profile_Page.helpers({
 Template.Profile_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
-    const firstName = event.target.First.value;
-    const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
+    const itemName = event.target.ItemName.value;
+    const description = event.target.Description.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
-    const facebook = event.target.Facebook.value;
-    const instagram = event.target.Instagram.value;
-    const bio = event.target.Bio.value;
+    const email = event.target.EmailAddress.value;
+    const phoneNumber = event.target.PhoneNumber.value;
+    const askingPrice = event.target.AskingPrice.value;
     const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
     const categories = _.map(selectedCategories, (option) => option.value);
 
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, categories,
-      username };
+    const updatedProfileData = { itemName, description, picture, email, askingPrice, categories,
+      phoneNumber, username };
 
     // Clear out any old validation errors.
     instance.context.reset();

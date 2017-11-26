@@ -20,17 +20,14 @@ class ProfileCollection extends BaseCollection {
   constructor() {
     super('Profile', new SimpleSchema({
       username: { type: String },
-      // Remainder are optional
-      firstName: { type: String, optional: true },
-      lastName: { type: String, optional: true },
-      bio: { type: String, optional: true },
-      categories: { type: Array, optional: true },
-      'categories.$': { type: String },
-      title: { type: String, optional: true },
+      itemName: { type: String, optional: true },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      github: { type: SimpleSchema.RegEx.Url, optional: true },
-      facebook: { type: SimpleSchema.RegEx.Url, optional: true },
-      instagram: { type: SimpleSchema.RegEx.Url, optional: true },
+      description: { type: String, optional: true },
+      categories: { type: Array },
+      'categories.$': { type: String },
+      askingPrice: { type: String, optional: true },
+      email: { type: SimpleSchema.RegEx.Url, optional: true },
+      phoneNumber: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -55,16 +52,15 @@ class ProfileCollection extends BaseCollection {
    * if one or more categories are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', categories = [], picture = '', title = '', github = '',
-      facebook = '', instagram = '' }) {
+  define({ itemName = '', username, description = '', categories = [], picture = '', email = '', phoneNumber = '',
+    askingPrice = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
-      title: String };
-    check({ firstName, lastName, username, bio, picture, title }, checkPattern);
+    const checkPattern = { itemName: String, username: String, email: String, askingPrice: String };
+    check({ itemName, username, email, askingPrice }, checkPattern);
 
-    if (this.find({ username }).count() > 0) {
+    /* if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
-    }
+    } */
 
     // Throw an error if any of the passed Interest names are not defined.
     Categories.assertNames(categories);
@@ -74,8 +70,8 @@ class ProfileCollection extends BaseCollection {
       throw new Meteor.Error(`${categories} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, bio, categories, picture, title, github,
-      facebook, instagram });
+    return this._collection.insert({ itemName, username, description, categories, picture, email, phoneNumber,
+      askingPrice });
   }
 
   /**
@@ -85,17 +81,15 @@ class ProfileCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const firstName = doc.firstName;
-    const lastName = doc.lastName;
+    const itemName = doc.itemName;
     const username = doc.username;
-    const bio = doc.bio;
+    const description = doc.description;
     const categories = doc.categories;
     const picture = doc.picture;
-    const title = doc.title;
-    const github = doc.github;
-    const facebook = doc.facebook;
-    const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, categories, picture, title, github, facebook, instagram };
+    const email = doc.email;
+    const phoneNumber = doc.phoneNumber;
+    const askingPrice = doc.askingPrice;
+    return { itemName, username, description, categories, picture, email, phoneNumber, askingPrice };
   }
 }
 

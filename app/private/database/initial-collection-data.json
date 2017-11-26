@@ -25,6 +25,10 @@
           "description": ""
         },
         {
+          "name": "Furniture",
+          "description": ""
+        },
+        {
           "name": "Miscellaneous",
           "description": ""
         }
@@ -34,60 +38,64 @@
       "name": "ProfileCollection",
       "contents": [
         {
-          "firstName": "Lee",
-          "lastName": "Altenberg",
-          "username": "altenber",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "userName": "Test User 1",
+          "itemName": "Sample Textbook",
+          "email": "mhsakuda@hawaii.edu",
+          "description": "This is a sample textbook item post.",
+          "askingPrice": "$10.99",
           "categories": [
             "Textbooks"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg"
+          "picture": "/images/altenberg.jpg",
+          "phoneNumber": "808-956-1111"
         },
         {
-          "firstName": "Kyungim",
-          "lastName": "Baek",
-          "username": "baek",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "userName": "Test User 2",
+          "itemName": "Sample Houseware Item",
+          "email": "mhsakuda@hawaii.edu",
+          "description": "This is a sample houseware item post.",
+          "askingPrice": "$10.99",
           "categories": [
             "Houseware"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg"
+          "picture": "/images/baek.jpg",
+          "phoneNumber": "808-956-1111"
         },
         {
-          "firstName": "Edo",
-          "lastName": "Biagioni",
-          "username": "esb",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "userName": "Test User 3",
+          "itemName": "Sample Clothing Item",
+          "email": "mhsakuda@hawaii.edu",
+          "description": "This is a sample clothing item post.",
+          "askingPrice": "$10.99",
           "categories": [
             "Clothing"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/biagioni.jpg"
+          "picture": "/images/biagioni.jpg",
+          "phoneNumber": "808-956-1111"
         },
         {
-          "firstName": "Kim",
-          "lastName": "Binsted",
-          "username": "binsted",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "userName": "Test User 4",
+          "itemName": "Sample Furniture Item",
+          "email": "mhsakuda@hawaii.edu",
+          "description": "This is a sample furniture item post.",
+          "askingPrice": "$10.99",
           "categories": [
-            "Houseware"
+            "Furniture"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/binsted.jpg"
+          "picture": "/images/binsted.jpg",
+          "phoneNumber": "808-956-1111"
         },
         {
-          "firstName": "Henri",
-          "lastName": "Casanova",
-          "username": "henric",
-          "github": "henricasanova",
-          "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii.",
+          "userName": "Test User 5",
+          "itemName": "Sample Electronics Item",
+          "email": "mhsakuda@hawaii.edu",
+          "description": "This is a sample electronics item post.",
+          "askingPrice": "$10.99",
           "categories": [
             "Electronics"
           ],
-          "title": "Professor, Information and Computer Sciences",
-          "picture": "/images/casanova.jpg"
+          "picture": "/images/casanova.jpg",
+          "phoneNumber": "808-956-1111"
         }
       ]
     },
