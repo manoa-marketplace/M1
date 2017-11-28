@@ -38,63 +38,63 @@
       "name": "ProfileCollection",
       "contents": [
         {
-          "username": "Test User 1",
-          "itemName": "Sample Textbook",
+          "username": "UH Student 1",
+          "itemName": "Javascript & JQuery",
           "email": "mhsakuda@hawaii.edu",
-          "description": "This is a sample textbook item post.",
+          "description": "Textbook as shown. Condition is nearly brand new.",
           "askingPrice": "$10.99",
           "categories": [
             "Textbooks"
           ],
-          "picture": "/images/altenberg.jpg",
+          "picture": "/images/textbook.png",
           "phoneNumber": "808-956-1111"
         },
         {
-          "username": "Test User 2",
-          "itemName": "Sample Houseware Item",
+          "username": "UH Student 2",
+          "itemName": "KitchenAid Standing Mixer",
           "email": "mhsakuda@hawaii.edu",
-          "description": "This is a sample houseware item post.",
-          "askingPrice": "$10.99",
+          "description": "KitchenAid standing mixer. Color is red. Condition is fairly used. Comes with everything in the box.",
+          "askingPrice": "$19.99",
           "categories": [
             "Houseware"
           ],
-          "picture": "/images/baek.jpg",
+          "picture": "/images/houseware.jpg",
           "phoneNumber": "808-956-1111"
         },
         {
-          "username": "Test User 3",
-          "itemName": "Sample Clothing Item",
+          "username": "UH Student 3",
+          "itemName": "Northface Jacket",
           "email": "mhsakuda@hawaii.edu",
-          "description": "This is a sample clothing item post.",
-          "askingPrice": "$10.99",
+          "description": "Size is XL. Barely used. Color is black.",
+          "askingPrice": "$24.99",
           "categories": [
             "Clothing"
           ],
-          "picture": "/images/biagioni.jpg",
+          "picture": "/images/clothing.jpg",
           "phoneNumber": "808-956-1111"
         },
         {
           "username": "Test User 4",
-          "itemName": "Sample Furniture Item",
+          "itemName": "Computer Chair",
           "email": "mhsakuda@hawaii.edu",
-          "description": "This is a sample furniture item post.",
-          "askingPrice": "$10.99",
+          "description": "Black computer chair. Fairly used. Still good.",
+          "askingPrice": "$9.99",
           "categories": [
             "Furniture"
           ],
-          "picture": "/images/binsted.jpg",
+          "picture": "/images/furniture.jpeg",
           "phoneNumber": "808-956-1111"
         },
         {
           "username": "Test User 5",
-          "itemName": "Sample Electronics Item",
+          "itemName": "Nintendo Switch",
           "email": "mhsakuda@hawaii.edu",
-          "description": "This is a sample electronics item post.",
-          "askingPrice": "$10.99",
+          "description": "Comes with controller, and accessories. Good condition.",
+          "askingPrice": "$149.99",
           "categories": [
             "Electronics"
           ],
-          "picture": "/images/casanova.jpg",
+          "picture": "/images/electronics.jpg",
           "phoneNumber": "808-956-1111"
         }
       ]

@@ -2,15 +2,21 @@
 
   <div class="card">
     <div class="content">
-      <img class="right floated mini ui image" src="{{ profile.picture }}">
       <div class="header">
-        {{ profile.firstName }} {{ profile.lastName }}
+        {{ profile.itemName }}
       </div>
       <div class="meta">
-        {{ profile.title}}
+        {{ profile.username}}
       </div>
+      <img class="center floated ui image" src="{{ profile.picture }}">
       <div class="description">
-        {{ profile.bio }}
+        {{ profile.description }}
+      </div>
+      <div class="askingPrice">
+        {{ profile.askingPrice }}
+      </div>
+      <div class="phoneNumber">
+        {{ profile.phoneNumber }}
       </div>
       <div style="margin-top: 10px">
         {{#each category in profile.categories}}
