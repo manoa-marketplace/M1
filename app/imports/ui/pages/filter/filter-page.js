@@ -27,7 +27,7 @@ Template.Filter_Page.helpers({
 
   categories() {
     return _.map(Categories.findAll(),
-        function makeInterestObject(category) {
+        function makeCategoryObject(category) {
           return {
             label: category.name,
             selected: _.contains(Template.instance().messageFlags.get(selectedCategoriesKey), category.name),
