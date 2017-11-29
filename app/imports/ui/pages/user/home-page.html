@@ -2,19 +2,20 @@
   <div class="ui container">
     {{#if isAdmin}}
       <h1 style="display: inline-block">Admin Messages</h1>
-      <button class="ui button" style="float: right">View all Messages</button>
-      {{#each admin in admins}} <!--TODO ADMIN MESSAGES-->
+      {{#if adminMessagesEmpty}}
         <div class="ui segment">
-          <h3 style="display: inline-block">{{admin.name}}</h3>
-          <p style="float: right;display: inline-block">00/00/0000</p>
-          <p>This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look.</p>
+          <p>There are no messages at this time</p>
         </div>
-        <div class="ui segment">
-          <h3 style="display: inline-block">{{admin.name}}</h3>
-          <p style="float: right;display: inline-block">00/00/0000</p>
-          <p>This is a long example message because we need to know how this will look.</p>
-        </div>
-      {{/each}}
+      {{else}}
+        <button class="ui button" style="float: right">View all Messages</button>
+        {{#each message in adminMessages}} <!--TODO ADMIN MESSAGES-->
+          <div class="ui segment">
+            <h3 style="display: inline-block">{{message.user}}</h3>
+            <p style="float: right;display: inline-block">{{message.date}}</p>
+            <p>{{message.msg}}</p>
+          </div>
+        {{/each}}
+      {{/if}}
     {{/if}}
 
 
