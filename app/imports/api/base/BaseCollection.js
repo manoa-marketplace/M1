@@ -246,6 +246,14 @@ class BaseCollection {
   restoreAll(dumpObjects) {
     _.each(dumpObjects, dumpObject => this.restoreOne(dumpObject));
   }
+  insert(data) {
+    this._collection.insert(data);
+    return true;
+  }
+  remove(data) {
+    this._collection.remove(data);
+    return true;
+  }
 }
 
 /**

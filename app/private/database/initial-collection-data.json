@@ -42,7 +42,7 @@
           "itemName": "Javascript & JQuery",
           "email": "mhsakuda@hawaii.edu",
           "description": "Textbook as shown. Condition is nearly brand new.",
-          "askingPrice": "$10.99",
+          "askingPrice": "10.99",
           "categories": [
             "Textbooks"
           ],
@@ -54,7 +54,7 @@
           "itemName": "KitchenAid Standing Mixer",
           "email": "mhsakuda@hawaii.edu",
           "description": "KitchenAid standing mixer. Color is red. Condition is fairly used. Comes with everything in the box.",
-          "askingPrice": "$19.99",
+          "askingPrice": "19.99",
           "categories": [
             "Houseware"
           ],
@@ -66,7 +66,7 @@
           "itemName": "Northface Jacket",
           "email": "mhsakuda@hawaii.edu",
           "description": "Size is XL. Barely used. Color is black.",
-          "askingPrice": "$24.99",
+          "askingPrice": "24.99",
           "categories": [
             "Clothing"
           ],
@@ -74,11 +74,11 @@
           "phoneNumber": "808-956-1111"
         },
         {
-          "username": "Test User 4",
+          "username": "UH Student 4",
           "itemName": "Computer Chair",
           "email": "mhsakuda@hawaii.edu",
           "description": "Black computer chair. Fairly used. Still good.",
-          "askingPrice": "$9.99",
+          "askingPrice": "9.99",
           "categories": [
             "Furniture"
           ],
@@ -86,15 +86,27 @@
           "phoneNumber": "808-956-1111"
         },
         {
-          "username": "Test User 5",
+          "username": "UH Student 5",
           "itemName": "Nintendo Switch",
           "email": "mhsakuda@hawaii.edu",
           "description": "Comes with controller, and accessories. Good condition.",
-          "askingPrice": "$149.99",
+          "askingPrice": "149.99",
           "categories": [
             "Electronics"
           ],
           "picture": "/images/electronics.jpg",
+          "phoneNumber": "808-956-1111"
+        },
+        {
+          "username": "UH Student 6",
+          "itemName": "uni-ball KuruToga Pencil",
+          "email": "mhsakuda@hawaii.edu",
+          "description": "0.5mm. Black color. Brand new. Highly recommended.",
+          "askingPrice": "5.49",
+          "categories": [
+            "Supplies"
+          ],
+          "picture": "/images/supplies.jpg",
           "phoneNumber": "808-956-1111"
         }
       ]

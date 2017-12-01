@@ -33,7 +33,6 @@ FlowRouter.route('/directory', {
   triggersExit: [removeDirectoryBodyClass],
 });
 
-
 /*                        USER ROUTES                      */
 
 
@@ -89,6 +88,14 @@ userRoutes.route('/post-item', {
   name: postItemPageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: postItemPageRouteName });
+  },
+});
+
+export const updateItemPageRouteName = 'Update_Item_Page';
+userRoutes.route('/update-item/:_id', {
+  name: updateItemPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: updateItemPageRouteName });
   },
 });
 

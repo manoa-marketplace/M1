@@ -8,7 +8,7 @@ import { Categories } from '/imports/api/categories/CategoryCollection';
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
-Template.Post_Item_Page.onCreated(function onCreated() {
+Template.Update_Item_Page.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Categories.getPublicationName());
   this.messageFlags = new ReactiveDict();
@@ -17,7 +17,7 @@ Template.Post_Item_Page.onCreated(function onCreated() {
   this.context = Profiles.getSchema().namedContext('Post_Item_Page');
 });
 
-Template.Post_Item_Page.helpers({
+Template.Update_Item_Page.helpers({
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
   },
@@ -45,7 +45,7 @@ Template.Post_Item_Page.helpers({
   },
 });
 
-Template.Post_Item_Page.events({
+Template.Update_Item_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
     const itemName = event.target.Item.value;
