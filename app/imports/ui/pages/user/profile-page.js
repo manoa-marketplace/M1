@@ -3,15 +3,11 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
-import { Categories } from '/imports/api/categories/CategoryCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
 Template.Profile_Page.onCreated(function onCreated() {
-  this.subscribe(Interests.getPublicationName());
-  this.subscribe(Categories.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
@@ -31,14 +27,6 @@ Template.Profile_Page.helpers({
   },
   profile() {
     return Profiles.findDoc(FlowRouter.getParam('username'));
-  },
-  categories() {
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedCategories = profile.categories;
-    return profile && _.map(Categories.findAll(),
-        function makeCategoryObject(category) {
-          return { label: category.name, selected: _.contains(selectedCategories, category.name) };
-        });
   },
 });
 
