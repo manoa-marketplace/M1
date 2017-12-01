@@ -12,9 +12,6 @@
       <div class="description">
         {{ profile.description }}
       </div>
-      <div class="askingPrice">
-        {{ profile.askingPrice }}
-      </div>
       <div class="phoneNumber">
         {{ profile.phoneNumber }}
       </div>
@@ -27,7 +24,8 @@
     </div>
     <div class="extra content">
       <div class="ui equal width center aligned grid">
-        <div class="column"><a href="mailto:{{ profile.email}}"><i class="big mail icon"></i></a></div>
+        <div style="margin-top: 5px" class="ui left floated header column">{{ profile.askingPrice }}</div>
+        <div class="column"><a class="ui right floated primary button" href="mailto:{{ profile.email}}">Inquire</a></div>
         {{#if profile.github }}
           <div class="column"><a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a></div>
         {{/if}}
