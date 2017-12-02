@@ -1,9 +1,13 @@
 <template name="Directory_Profile">
 
   <div class="card">
+
+  {{#if Template.subscriptionsReady}}
     <div class="content">
-      <div class="ui mini right floated icon button"><a href="{{pathFor 'Update_Item_Page' _id=profile._id}}"></a>
-        <i class="medium pencil icon"></i></div>
+      <div class="ui right floated mini button delete">Delete
+      </div>
+      <div class="ui right floated mini"><a href="{{pathFor 'Update_Item_Page' _id=profile._id}}">Edit</a>
+      </div>
       <div class="header">
         {{ profile.itemName }}
       </div>
@@ -39,6 +43,7 @@
         {{/if}}
       </div>
     </div>
+  {{/if}}
   </div>
 
 </template>

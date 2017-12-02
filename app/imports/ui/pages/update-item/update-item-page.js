@@ -14,7 +14,7 @@ Template.Update_Item_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = Profiles.getSchema().namedContext('Post_Item_Page');
+  this.context = Profiles.getSchema().namedContext('Update_Item_Page');
 });
 
 Template.Update_Item_Page.helpers({

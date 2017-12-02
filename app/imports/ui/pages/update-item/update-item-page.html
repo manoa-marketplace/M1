@@ -4,20 +4,20 @@
 
   <div class="ui text container segment">
     <div class="ui dividing header">
-      Post an item on UHM Exchange.
+      Update a post on UHM Exchange.
     </div>
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="field">
         {{> Text_Form_Control label="Item Name" name="Item" required=true placeholder="Item Name" errorMessage=(fieldError "item name")
-            value=profile.name }} </div>
+            value=(profileDataField "Item") }} </div>
 
       <div class="field">
         {{> Text_Form_Control label="Picture" name="Picture" placeholder="http://foo.com/shot.jpg" errorMessage=(fieldError "picture") optional=true
-            value=profile.picture }} </div>
+            value=(profileDataField "Picture") }} </div>
 
       {{> TextArea_Form_Control label="Description" name="Description" required=true placeholder="Description of your item."
-          errorMessage=(fieldError "description") value=profile.description }}
+          errorMessage=(fieldError "description") value=(profileDataField "Description") }}
 
       <div class="field">
         {{> Select_Form_Control label="Categories" required=true options=categories errorMessage=(fieldError "categories") multiple=true }}
@@ -25,7 +25,7 @@
 
       <div class="field">
         {{> Text_Form_Control label="Asking Price" name="Price" required=true placeholder="$0.00" errorMessage=(fieldError "Asking price")
-            value=profile.price }} </div>
+            value=(profileDataField "Price") }} </div>
 
       <div class="ui dividing header">
         Contact Information
@@ -33,20 +33,20 @@
 
       <div class="field">
         {{> Text_Form_Control label="Email" name="Email" required=true placeholder="foo@bar.com" errorMessage=(fieldError "email address")
-            value=profile.email }} </div>
+            value=(profileDataField "Email") }} </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Telephone Number" name="Telephone" placeholder="XXX-XXX-XXXX" errorMessage=(fieldError "phone number") optional=true
-            value=profile.telephone }} </div>
+        {{> Text_Form_Control label="Telephone Number" name="Telephone" placeholder="XXX-XXX-XXXX" errorMessage=(fieldError "phone number")
+            optional=true value=(profileDataField "Telephone") }} </div>
 
       <div class="field">
         <p>By posting a listing on UHM Exchange, you signify an explicit agreement to UHM Exchange's terms of use.</p>
       </div>
 
-      <button class="ui primary button" type="submit">Post Listing</button>
+      <button class="ui primary button" type="submit">Update Listing</button>
       {{#if displaySuccessMessage}}
       <div class="ui success message">
-        <p>Your Item was listed successfully.</p>
+        <p>Your Item was updated successfully.</p>
       </div>
       {{/if}}
     </form>
