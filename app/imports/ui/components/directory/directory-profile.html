@@ -4,9 +4,7 @@
 
   {{#if Template.subscriptionsReady}}
     <div class="content">
-      <div class="ui right floated mini button delete">Delete
-      </div>
-      <div class="ui right floated mini"><a href="{{pathFor 'Update_Item_Page' _id=profile._id}}">Edit</a>
+      <div class="ui right floated mini"><a href="{{pathFor "Edit_Item_Page" _id=profile._id username=routeUserName}}">Edit</a>
       </div>
       <div class="header">
         {{ profile.itemName }}

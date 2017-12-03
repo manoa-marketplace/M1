@@ -8,16 +8,16 @@ import { Categories } from '/imports/api/categories/CategoryCollection';
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
-Template.Update_Item_Page.onCreated(function onCreated() {
+Template.Edit_Item_Page.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Categories.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = Profiles.getSchema().namedContext('Update_Item_Page');
+  // this.context = Profiles.getSchema().namedContext('Update_Item_Page');
 });
 
-Template.Update_Item_Page.helpers({
+Template.Edit_Item_Page.helpers({
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
   },
@@ -42,6 +42,11 @@ Template.Update_Item_Page.helpers({
         function makeCategoryObject(category) {
           return { label: category.name, selected: _.contains(selectedCategories, category.name) };
         });
+  },
+  profileDataField(fieldName) {
+    const profileData = Profiles.findOne(FlowRouter.getParam('_id'));
+    // See https://dweldon.silvrback.com/guards to understand '&&' in next line.
+    return profileData && profileData[fieldName];
   },
 });
 
@@ -69,7 +74,7 @@ Template.Update_Item_Page.events({
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      Profiles.insert(cleanData);
+      Profiles.update(cleanData);
       instance.messageFlags.set(displaySuccessMessage, true);
       FlowRouter.go(`/${username}/filter`);
     } else {

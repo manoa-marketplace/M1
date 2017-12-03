@@ -42,6 +42,5 @@ Template.Filter_Page.events({
     const selectedOptions = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedCategoriesKey, _.map(selectedOptions, (option) => option.value));
   },
-
 });
 

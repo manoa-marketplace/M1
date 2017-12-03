@@ -12,7 +12,7 @@ Template.Directory_Profile.helpers({
    * Returns a cursor to profiles, sorted by last name.
    */
   profiles() {
-    return Profiles.find({}, { sort: { lastName: 1 } });
+    return Profiles.find({}, { sort: { username: 1 } });
   },
 });
 

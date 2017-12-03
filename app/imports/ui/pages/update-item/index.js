@@ -1,2 +1,2 @@
-import './update-item-page.html';
-import './update-item-page.js';
+import './edit-item-page.html';
+import './edit-item-page';
