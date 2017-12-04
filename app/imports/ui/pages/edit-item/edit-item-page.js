@@ -81,5 +81,12 @@ Template.Edit_Item_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+
+  'click .delete'(event) {
+    event.preventDefault();
+    const username = FlowRouter.getParam('username'); // schema requires username.
+    Profiles.remove(FlowRouter.getParam('_id'));
+    FlowRouter.go(`/${username}/filter`);
+  },
 });
 
