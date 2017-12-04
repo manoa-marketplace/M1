@@ -13,6 +13,7 @@ import '/imports/ui/pages/landing';
 import '/imports/ui/pages/user';
 
 import '/imports/ui/pages/post-item';
+import '/imports/ui/pages/edit-item';
 import '/imports/ui/pages/browse';
 import '/imports/ui/pages/admin';
 

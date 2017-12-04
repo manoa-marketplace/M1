@@ -4,7 +4,7 @@
 
   {{#if Template.subscriptionsReady}}
     <div class="content">
-      <div class="ui right floated mini"><a href="{{pathFor "Edit_Item_Page" _id=profile._id username=routeUserName}}">Edit</a>
+      <div class="ui right floated mini"><a href="{{pathFor 'Edit_Item_Page' _id=profile._id username=profile.username}}">Edit</a>
       </div>
       <div class="header">
         {{ profile.itemName }}

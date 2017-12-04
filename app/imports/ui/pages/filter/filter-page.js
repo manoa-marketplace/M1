@@ -43,4 +43,3 @@ Template.Filter_Page.events({
     instance.messageFlags.set(selectedCategoriesKey, _.map(selectedOptions, (option) => option.value));
   },
 });
-

@@ -14,7 +14,7 @@ Template.Edit_Item_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  // this.context = Profiles.getSchema().namedContext('Update_Item_Page');
+  this.context = Profiles.getSchema().namedContext('Edit_Item_Page');
 });
 
 Template.Edit_Item_Page.helpers({
@@ -50,7 +50,7 @@ Template.Edit_Item_Page.helpers({
   },
 });
 
-Template.Update_Item_Page.events({
+Template.Edit_Item_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
     const itemName = event.target.Item.value;
@@ -63,18 +63,18 @@ Template.Update_Item_Page.events({
     const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
     const categories = _.map(selectedCategories, (option) => option.value);
 
-    const newProfileData = { itemName, picture, description, email, askingPrice, categories,
+    const updatedProfileData = { itemName, picture, description, email, askingPrice, categories,
       username, telephone };
 
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Profiles.getSchema().clean(newProfileData);
+    const cleanData = Profiles.getSchema().clean(updatedProfileData);
     // Determine validity.
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      Profiles.update(cleanData);
+      Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
       instance.messageFlags.set(displaySuccessMessage, true);
       FlowRouter.go(`/${username}/filter`);
     } else {

@@ -33,6 +33,14 @@ FlowRouter.route('/directory', {
   triggersExit: [removeDirectoryBodyClass],
 });
 
+export const editItemPageRouteName = 'Edit_Item_Page';
+FlowRouter.route('/:username/edit-item/:_id', {
+  name: editItemPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: editItemPageRouteName });
+  },
+});
+
 /*                        USER ROUTES                      */
 
 
@@ -91,13 +99,14 @@ userRoutes.route('/post-item', {
   },
 });
 
+/*
 export const editItemPageRouteName = 'Edit_Item_Page';
 userRoutes.route('/edit-item/:_id', {
   name: editItemPageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: editItemPageRouteName });
   },
-});
+}); */
 
 export const categoriesPageRouteName = 'Categories_Page';
 userRoutes.route('/categories', {
