@@ -84,7 +84,7 @@ userRoutes.route('/admin-home', {
 });
 
 export const filterPageRouteName = 'Filter_Page';
-userRoutes.route('/filter', {
+userRoutes.route('/browse', {
   name: filterPageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: filterPageRouteName });
@@ -99,28 +99,11 @@ userRoutes.route('/post-item', {
   },
 });
 
-/*
-export const editItemPageRouteName = 'Edit_Item_Page';
-userRoutes.route('/edit-item/:_id', {
-  name: editItemPageRouteName,
-  action() {
-    BlazeLayout.render('User_Layout', { main: editItemPageRouteName });
-  },
-}); */
-
 export const categoriesPageRouteName = 'Categories_Page';
 userRoutes.route('/categories', {
   name: categoriesPageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: categoriesPageRouteName });
-  },
-});
-
-export const browsePageRouteName = 'Browse_Page';
-userRoutes.route('/browse', {
-  name: browsePageRouteName,
-  action() {
-    BlazeLayout.render('User_Layout', { main: browsePageRouteName });
   },
 });
 
