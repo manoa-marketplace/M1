@@ -76,7 +76,7 @@ Template.Edit_Item_Page.events({
     if (instance.context.isValid()) {
       Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
       instance.messageFlags.set(displaySuccessMessage, true);
-      FlowRouter.go(`/${username}/filter`);
+      FlowRouter.go(`/${username}/browse`);
     } else {
       instance.messageFlags.set(displayErrorMessages, true);
     }
