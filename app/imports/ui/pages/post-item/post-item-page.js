@@ -28,7 +28,7 @@ Template.Post_Item_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   fieldError(fieldName) {
-    const invalidKeys = Template.instance().context.invalidKeys();
+    const invalidKeys = Template.instance().context.validationErrors();
     const errorObject = _.find(invalidKeys, (keyObj) => keyObj.name === fieldName);
     return errorObject && Template.instance().context.keyErrorMessage(errorObject.name);
   },
