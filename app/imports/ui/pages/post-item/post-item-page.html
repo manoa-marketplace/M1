@@ -6,17 +6,17 @@
     <div class="ui dividing header">
       Post an item on UHM Exchange.
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+    <form class="ui equal width form profile-data-form {{ errorClass }}">
 
       <div class="field">
         {{> Text_Form_Control label="Item Name" name="Item" required=true placeholder="Item Name" errorMessage=(fieldError "itemName")
         }} </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Picture" name="Picture" placeholder="http://foo.com/shot.jpg" errorMessage=(fieldError "picture") optional=true
+        {{> Text_Form_Control label="Picture" name="Picture" placeholder="http://foo.com/shot.jpg" optional=true
         }} </div>
 
-      {{> TextArea_Form_Control label="Description" name="Description" required=true placeholder="Description of your item."
+      {{> TextArea_Form_Control label="Description" name="Description" placeholder="Description of your item."
           errorMessage=(fieldError "description") }}
 
       <div class="field">
