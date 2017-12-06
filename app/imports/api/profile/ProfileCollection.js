@@ -22,7 +22,7 @@ class ProfileCollection extends BaseCollection {
       username: { type: String },
       itemName: { type: String },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      description: { type: String, optional:true },
+      description: { type: String },
       categories: { type: Array },
       'categories.$': { type: String },
       askingPrice: { type: String },

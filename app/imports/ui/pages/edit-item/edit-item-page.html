@@ -16,7 +16,7 @@
           {{> Text_Form_Control label="Picture" name="Picture" placeholder="http://foo.com/shot.jpg" optional=true
               value=(profileDataField 'picture') }} </div>
 
-        {{> TextArea_Form_Control label="Description" name="Description" placeholder="Description of your item."
+        {{> TextArea_Form_Control label="Description" name="Description" required=true placeholder="Description of your item."
             errorMessage=(fieldError "description") value=(profileDataField 'description') }}
 
         <div class="field">
