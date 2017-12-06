@@ -63,8 +63,8 @@ Template.Edit_Item_Page.events({
     const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
     const categories = _.map(selectedCategories, (option) => option.value);
 
-    const updatedProfileData = { itemName, picture, description, email, askingPrice, categories,
-      username, telephone };
+    const updatedProfileData = { itemName, picture, description, email, askingPrice,
+      username, telephone, categories };
 
     // Clear out any old validation errors.
     instance.context.reset();
@@ -74,8 +74,8 @@ Template.Edit_Item_Page.events({
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      const id = Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
-      instance.messageFlags.set(displaySuccessMessage, id);
+      Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
+      instance.messageFlags.set(displaySuccessMessage, true);
       FlowRouter.go(`/${username}/browse`);
     } else {
       instance.messageFlags.set(displayErrorMessages, true);

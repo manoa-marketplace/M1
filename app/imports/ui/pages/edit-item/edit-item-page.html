@@ -10,22 +10,22 @@
 
         <div class="field">
           {{> Text_Form_Control label="Item Name" name="Item" required=true placeholder="Item Name" errorMessage=(fieldError "itemName")
-              value=(profileDataField "itemName") }} </div>
+              value=(profileDataField 'itemName') }} </div>
 
         <div class="field">
           {{> Text_Form_Control label="Picture" name="Picture" placeholder="http://foo.com/shot.jpg" errorMessage=(fieldError "picture") optional=true
-              value=(profileDataField "picture") }} </div>
+              value=(profileDataField 'picture') }} </div>
 
         {{> TextArea_Form_Control label="Description" name="Description" required=true placeholder="Description of your item."
-            errorMessage=(fieldError "description") value=(profileDataField "description") }}
+            errorMessage=(fieldError "description") value=(profileDataField 'description') }}
 
         <div class="field">
-          {{> Select_Form_Control label="Categories" required=true options=categories errorMessage=(fieldError "categories") multiple=true }}
+          {{> Select_Form_Control label="Categories" name="Categories" required=true options=categories errorMessage=(fieldError "categories") multiple=true }}
         </div>
 
         <div class="field">
-          {{> Text_Form_Control label="Asking Price" name="Price" required=true placeholder="$0.00" errorMessage=(fieldError "askingPprice")
-              value=(profileDataField "askingPrice") }} </div>
+          {{> Text_Form_Control label="Asking Price" name="Price" required=true placeholder="$0.00" errorMessage=(fieldError "askingPrice")
+              value=(profileDataField 'askingPrice') }} </div>
 
         <div class="ui dividing header">
           Contact Information
@@ -33,11 +33,11 @@
 
         <div class="field">
           {{> Text_Form_Control label="Email" name="Email" required=true placeholder="foo@bar.com" errorMessage=(fieldError "email")
-              value=(profileDataField "email") }} </div>
+              value=(profileDataField 'email') }} </div>
 
         <div class="field">
           {{> Text_Form_Control label="Telephone Number" name="Telephone" placeholder="XXX-XXX-XXXX" errorMessage=(fieldError "telephone")
-              optional=true value=(profileDataField "telephone") }} </div>
+              optional=true value=(profileDataField 'telephone') }} </div>
 
         <div class="field">
           <p>By posting a listing on UHM Exchange, you signify an explicit agreement to UHM Exchange's terms of use.</p>
