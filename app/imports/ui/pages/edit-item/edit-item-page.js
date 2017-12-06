@@ -44,7 +44,7 @@ Template.Edit_Item_Page.helpers({
         });
   },
   profileDataField(fieldName) {
-    const profileData = Profiles.findOne(FlowRouter.getParam('_id'));
+    const profileData = Profiles._collection.findOne(FlowRouter.getParam('_id'));
     // See https://dweldon.silvrback.com/guards to understand '&&' in next line.
     return profileData && profileData[fieldName];
   },
@@ -74,8 +74,8 @@ Template.Edit_Item_Page.events({
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
-      instance.messageFlags.set(displaySuccessMessage, true);
+      const id = Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
+      instance.messageFlags.set(displaySuccessMessage, id);
       FlowRouter.go(`/${username}/browse`);
     } else {
       instance.messageFlags.set(displayErrorMessages, true);
@@ -89,4 +89,3 @@ Template.Edit_Item_Page.events({
     FlowRouter.go(`/${username}/browse`);
   },
 });
-

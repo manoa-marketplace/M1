@@ -9,7 +9,7 @@
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="field">
-        {{> Text_Form_Control label="Item Name" name="Item" required=true placeholder="Item Name" errorMessage=(fieldError "item name")
+        {{> Text_Form_Control label="Item Name" name="Item" required=true placeholder="Item Name" errorMessage=(fieldError "itemName")
         }} </div>
 
       <div class="field">
@@ -24,7 +24,7 @@
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Asking Price" name="Price" required=true placeholder="$0.00" errorMessage=(fieldError "Asking price")
+        {{> Text_Form_Control label="Asking Price" name="Price" required=true placeholder="$0.00" errorMessage=(fieldError "askingPrice")
         }} </div>
 
       <div class="ui dividing header">
@@ -32,11 +32,11 @@
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Email" name="Email" required=true placeholder="foo@bar.com" errorMessage=(fieldError "email address")
+        {{> Text_Form_Control label="Email" name="Email" required=true placeholder="foo@bar.com" errorMessage=(fieldError "email")
         }} </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Telephone Number" name="Telephone" placeholder="XXX-XXX-XXXX" errorMessage=(fieldError "phone number")
+        {{> Text_Form_Control label="Telephone Number" name="Telephone" placeholder="XXX-XXX-XXXX" errorMessage=(fieldError "telephone")
             optional=true }} </div>
 
       <div class="field">
