@@ -20,13 +20,13 @@ class ProfileCollection extends BaseCollection {
   constructor() {
     super('Profile', new SimpleSchema({
       username: { type: String },
-      itemName: { type: String },
+      itemName: { type: String, optional: true  },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      description: { type: String },
-      categories: { type: Array },
+      description: { type: String, optional: true  },
+      categories: { type: Array, optional: true  },
       'categories.$': { type: String },
-      askingPrice: { type: String },
-      email: { type: SimpleSchema.RegEx.Url },
+      askingPrice: { type: String, optional: true  },
+      email: { type: SimpleSchema.RegEx.Url, optional: true  },
       phoneNumber: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
