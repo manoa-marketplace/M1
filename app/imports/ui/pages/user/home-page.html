@@ -7,19 +7,47 @@
           <p>There are no messages at this time</p>
         </div>
       {{else}}
-        <button class="ui button" style="float: right">View all Messages</button>
-        {{#each message in adminMessages}} <!--TODO ADMIN MESSAGES-->
+        <button class="ui button" style="float: right">View all Messages</button><!--TODO Limit displayed messages-->
+        {{#each message in adminMessages}}
           <div class="ui segment">
-            <h3 style="display: inline-block">{{message.user}}</h3>
+            <h3 style="display: inline-block">{{message.from}}</h3>
             <p style="float: right;display: inline-block">{{message.date}}</p>
             <p>{{message.msg}}</p>
           </div>
         {{/each}}
       {{/if}}
+      <br>
     {{/if}}
 
+    {{#if announcementsEmpty}}
+    {{else}}
+      <div>
+      <h1 style="display: inline-block">Announcements</h1>
+      <button class="ui button" style="float: right">View all Announcements</button><!--TODO Limit displayed messages-->
+      </div>
+      {{#each message in announcements}}
+        <div class="ui segment">
+          <h3 style="display: inline-block">{{message.date}}</h3>
+          <p>{{message.msg}}</p>
+        </div>
+      {{/each}}
+      <br>
+    {{/if}}
 
-
+    {{#if userMessagesEmpty}}
+    {{else}}
+      <div>
+        <h1 style="display: inline-block;">Your Messages</h1>
+        <button class="ui button" style="float: right;">View all Messages</button><!--TODO Limit displayed messages-->
+      </div>
+      {{#each message in userMessages}}
+        <div class="ui segment">
+          <h3 style="display: inline-block">From {{message.from}}</h3>
+          <p style="float: right;display: inline-block">{{message.date}}</p>
+          <p>{{message.msg}}</p>
+        </div>
+      {{/each}}
+    {{/if}}
 
     <h1>Items you're interested in</h1>
     <div style="margin-top: 20px" class="ui cards">
