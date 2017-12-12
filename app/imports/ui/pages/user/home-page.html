@@ -2,181 +2,64 @@
   <div class="ui container">
     {{#if isAdmin}}
       <h1 style="display: inline-block">Admin Messages</h1>
-      <button class="ui button" style="float: right">View all Messages</button>
-      {{#each admin in admins}} <!--TODO ADMIN MESSAGES-->
+      {{#if adminMessagesEmpty}}
         <div class="ui segment">
-          <h3 style="display: inline-block">{{admin.name}}</h3>
-          <p style="float: right;display: inline-block">00/00/0000</p>
-          <p>This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look. This is a long example message because we need to know how this will look.</p>
+          <p>There are no messages at this time</p>
         </div>
+      {{else}}
+        <!--<button class="ui button" style="float: right">View all Messages</button>&lt;!&ndash;TODO Limit displayed messages&ndash;&gt;-->
+        {{#each message in adminMessages}}
+          <div class="ui segment">
+            <h3 style="display: inline-block">{{message.from}}</h3>
+            <p style="float: right;display: inline-block">{{message.date}}</p>
+            <p>{{message.msg}}</p>
+          </div>
+        {{/each}}
+      {{/if}}
+    {{/if}}
+
+    {{#if announcementsEmpty}}
+    {{else}}
+      <div>
+      <h1 style="display: inline-block">Announcements</h1>
+      <!--<button class="ui button" style="float: right">View all Announcements</button>&lt;!&ndash;TODO Limit displayed messages&ndash;&gt;-->
+      </div>
+    <div class="ui segment">
+      {{#each message in announcements}}
+
+          <p><h4 style="display: inline-block">{{message.date}}:&nbsp;&nbsp;</h4>{{message.msg}}</p>
+
+
+      {{/each}}
+    </div>
+    {{/if}}
+
+    <div>
+      <h1 style="display: inline-block;">Your Messages</h1>
+      <!--<button class="ui button" style="float: right;">View all Messages</button>&lt;!&ndash;TODO Limit displayed messages&ndash;&gt;-->
+    </div>
+    {{#if userMessagesEmpty}}
+    <div class="ui segment">
+      <p>You have no Messages</p>
+    </div>
+    {{else}}
+      {{#each message in userMessages}}
         <div class="ui segment">
-          <h3 style="display: inline-block">{{admin.name}}</h3>
-          <p style="float: right;display: inline-block">00/00/0000</p>
-          <p>This is a long example message because we need to know how this will look.</p>
+          <h3 style="display: inline-block">From {{message.from}}</h3>
+          <p style="float: right;display: inline-block">{{message.date}}</p>
+          <p>{{message.msg}}</p>
         </div>
       {{/each}}
     {{/if}}
 
-
-
-
-    <h1>Items you're interested in</h1>
-    <div style="margin-top: 20px" class="ui cards">
-      <div class="card">
-        <div class="content">
-          <img class="right floated mini ui image" src="http://lorempixel.com/300/300/cats">
-          <div class="header">
-            Name
-          </div>
-          <div class="description">
-            description
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-          <div style="margin-top: 10px">
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 1</a>
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 2</a>
-          </div>
-          <div style="margin-top: 10px" class="left floated header">
-            $00.00
-          </div>
-          <div class="ui primary right floated button">
-            Inquire
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <img class="right floated mini ui image" src="http://lorempixel.com/300/300/cats">
-          <div class="header">
-            Name
-          </div>
-          <div class="description">
-            A somewhat longer description that because it is longer will take up more space on the Semantic UI card
-            and will push everything after it in the card down relative to adjacent cards.
-          </div>
-          <div style="margin-top: 10px">
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 1</a>
-          </div>
-          <div style="margin-top: 10px" class="left floated header">
-            $00.00
-          </div>
-          <div class="ui primary right floated button">
-            Inquire
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <img class="right floated mini ui image" src="http://lorempixel.com/300/300/cats">
-          <div class="header">
-            Name
-          </div>
-          <div class="description">
-            description
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-          <div style="margin-top: 10px">
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 1</a>
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 2</a>
-          </div>
-          <div style="margin-top: 10px" class="left floated header">
-            $00.00
-          </div>
-          <div class="ui primary right floated button">
-            Inquire
-          </div>
-        </div>
-      </div>
+    <h1>Your Listings</h1>
+    {{#if hasListings}}
+      {{> Filter_Page_Directory profiles=yourProfiles }}
+    {{else}}
+    <div class="ui segment">
+      <p>You have no current listings</p>
     </div>
-
-  </div>
-  <br/>
-  <div class="ui container">
-    <h1>Your Items</h1>
-    <div style="margin-top: 20px" class="ui cards">
-      <div class="card">
-        <div class="content">
-          <img class="right floated mini ui image" src="http://lorempixel.com/300/300/cats">
-          <div class="header">
-            Name
-          </div>
-          <div class="description">
-            description
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-          <div style="margin-top: 10px">
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 1</a>
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 2</a>
-          </div>
-          <div style="margin-top: 10px" class="left floated header">
-            $00.00
-          </div>
-          <div class="ui primary right floated button">
-            Inquire
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <img class="right floated mini ui image" src="http://lorempixel.com/300/300/cats">
-          <div class="header">
-            Name
-          </div>
-          <div class="description">
-            A somewhat longer description that because it is longer will take up more space on the Semantic UI card
-            and will push everything after it in the card down relative to adjacent cards.
-          </div>
-          <div style="margin-top: 10px">
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 1</a>
-          </div>
-          <div style="margin-top: 10px" class="left floated header">
-            $00.00
-          </div>
-          <div class="ui primary right floated button">
-            Inquire
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <img class="right floated mini ui image" src="http://lorempixel.com/300/300/cats">
-          <div class="header">
-            Name
-          </div>
-          <div class="description">
-            description
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-          <div style="margin-top: 10px">
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 1</a>
-            <a style="margin-bottom: 2px" class="ui teal tag small label">category 2</a>
-          </div>
-          <div style="margin-top: 10px" class="left floated header">
-            $00.00
-          </div>
-          <div class="ui primary right floated button">
-            Inquire
-          </div>
-        </div>
-      </div>
-    </div>
-
+    {{/if}}
   </div>
 
 </template>

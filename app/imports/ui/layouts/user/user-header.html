@@ -5,17 +5,21 @@
       {{> Cas_Login }}
     </div>
     <div class="ui center aligned container" style="padding-top: 15px">
-      <a href="{{pathFor "Filter_Page" username=routeUserName}}"><p class="ui text" style="color: #fff; font-size: 48px;text-shadow: -2px 0 #024731, 0 2px #024731, 2px 0 #024731, 0 -2px #024731;">Manoa Marketplace</p></a>
+
+      <a href="{{pathFor 'Home_Page' username=routeUserName}}"><p class="ui text" style="color: #fff; font-size: 48px;text-shadow: -2px 0 #024731, 0 2px #024731, 2px 0 #024731, 0 -2px #024731;">Manoa Marketplace</p></a>
+
     </div>
 
   </div>
   <div class="ui inverted stackable teal menu" style="border-radius: 0;background-color: #024731; margin-top: 0;">
-    <a class="item" href="{{pathFor "Post_Item_Page" username=routeUserName}}">
+    <a class="item" href="{{pathFor 'Post_Item_Page' username=routeUserName}}">
     List an Item
     </a>
-    <a class="item" href="{{pathFor "Filter_Page" username=routeUserName}}">
+
+    <a class="item" href="{{pathFor 'Filter_Page' username=routeUserName}}">
     Browse Listings
     </a>
+
 
     <div class="right item" style="padding-top: 12px; padding-bottom: 0">
       <form class="ui form search-form">

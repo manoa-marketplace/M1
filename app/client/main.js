@@ -26,3 +26,9 @@ import '/imports/api/interest';
 // Added for Admins
 import '/imports/api/admins';
 
+// Messages
+import '/imports/api/messages';
+
+// Import Search
+import '/imports/ui/pages/search';
+

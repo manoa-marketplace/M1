@@ -4,8 +4,7 @@
 
   {{#if Template.subscriptionsReady}}
     <div class="content">
-      <div class="ui right floated mini"><a href="{{pathFor 'Edit_Item_Page' _id=profile._id username=profile.username}}">Edit</a>
-      </div>
+
       <div class="header">
         {{ profile.itemName }}
       </div>
@@ -29,7 +28,13 @@
     <div class="extra content">
       <div class="ui equal width center aligned grid">
         <div style="margin-top: 5px" class="ui left floated header column">${{ profile.askingPrice }}</div>
+
+        {{#if isOwner profile}}
+        <div class="column"><a class="ui right floated grey button" href="{{pathFor 'Edit_Item_Page' _id=profile._id username=profile.username}}">Update</a></div>
+        {{else}}
         <div class="column"><a class="ui right floated primary button" href="mailto:{{ profile.email}}">Inquire</a></div>
+        {{/if}}
+
         {{#if profile.github }}
           <div class="column"><a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a></div>
         {{/if}}

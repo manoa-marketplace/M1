@@ -118,6 +118,51 @@
           "name": "vnagoshi"
         }
       ]
+    },
+    {
+      "name": "MessageCollection",
+      "contents": [
+        {
+          "type": "announcement",
+          "to": "/na",
+          "from": "/na",
+          "date": "12/11/2017",
+          "msg": "Welcome to Manoa Marketplace. This is an alpha build, not all functionality may be working at this time. Use at your own discretion",
+          "status": "unread"
+        },
+        {
+          "type": "admin",
+          "to": "/na",
+          "from": "Test User",
+          "date": "12/11/2017",
+          "msg": "I can't seem to take down one of my items, can you look into it? (TEST MESSAGE)",
+          "status": "unread"
+        },
+        {
+          "type": "user",
+          "to": "vnagoshi",
+          "from": "Test User",
+          "date": "12/11/2017",
+          "msg": "Howzit Vincent (TEST MESSAGE)",
+          "status": "unread"
+        },
+        {
+          "type": "user",
+          "to": "mhsakuda",
+          "from": "Test User",
+          "date": "12/11/2017",
+          "msg": "Howzit Mitchell (TEST MESSAGE)",
+          "status": "unread"
+        },
+        {
+          "type": "user",
+          "to": "jessiedf",
+          "from": "Test User",
+          "date": "12/11/2017",
+          "msg": "Howzit Jessie (TEST MESSAGE)",
+          "status": "unread"
+        }
+      ]
     }
   ]
 }

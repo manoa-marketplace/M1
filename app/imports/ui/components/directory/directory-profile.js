@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import { Template } from 'meteor/templating';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 
@@ -13,6 +15,10 @@ Template.Directory_Profile.helpers({
   profiles() {
     return Profiles.find({}, { sort: { username: 1 } });
   },
+  isOwner(message) {
+    console.log(message.username);
+    return message.username === Meteor.user().profile.name;
+  }
 });
 
 Template.Directory_Profile.events({

@@ -94,6 +94,11 @@ class BaseCollection {
     return this._collection.find(theSelector, options);
   }
 
+  findLimit(selector, options, sort, limit) {
+    const theSelector = (typeof selector === 'undefined') ? {} : selector;
+    return this._collection.find(theSelector, options).limit(limit);
+  }
+
   /**
    * Returns the entire collection via find().fetch().
    * @returns [Array] A list of this collection as objects.

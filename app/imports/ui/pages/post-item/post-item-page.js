@@ -36,12 +36,11 @@ Template.Post_Item_Page.helpers({
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
   categories() {
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedCategories = profile.categories;
-    return profile && _.map(Categories.findAll(),
+    return _.map(Categories.findAll(),
         function makeCategoryObject(category) {
-          return { label: category.name, selected: _.contains(selectedCategories, category.name) };
+          return { label: category.name };
         });
+
   },
 });
 
@@ -54,12 +53,12 @@ Template.Post_Item_Page.events({
     const description = event.target.Description.value;
     const email = event.target.Email.value;
     const askingPrice = event.target.Price.value;
-    const telephone = event.target.Telephone.value;
+    const phoneNumber = event.target.Telephone.value;
     const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
     const categories = _.map(selectedCategories, (option) => option.value);
 
-    const newProfileData = { itemName, picture, description, email, askingPrice, categories,
-      username, telephone };
+    const newProfileData = { username, itemName, picture, description, email, askingPrice, categories,
+      username, phoneNumber };
 
     // Clear out any old validation errors.
     instance.context.reset();
