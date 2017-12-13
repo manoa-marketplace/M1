@@ -70,7 +70,7 @@ Template.Post_Item_Page.events({
     if (instance.context.isValid()) {
       Profiles.insert(cleanData);
       instance.messageFlags.set(displaySuccessMessage, true);
-      FlowRouter.go(`/${username}/browse`);
+      FlowRouter.go(`/${username}/home`);
     } else {
       instance.messageFlags.set(displayErrorMessages, true);
     }
