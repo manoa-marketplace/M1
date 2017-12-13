@@ -13,10 +13,7 @@ Template.User_Header.events({
     event.preventDefault();
     const query = event.target.Search.value;
     instance.find('form').reset();
-    console.log(`Search Query: '${query}'`);
     if (query.trim() !== '') {
-      console.log(FlowRouter.getParam('username'));
-
       FlowRouter.go(`/${FlowRouter.getParam('username')}/search/${query.trim()}`);
     }
   },
