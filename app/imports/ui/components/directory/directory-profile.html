@@ -32,20 +32,32 @@
         {{#if isOwner profile}}
         <div class="column"><a class="ui right floated grey button" href="{{pathFor 'Edit_Item_Page' _id=profile._id username=profile.username}}">Update</a></div>
         {{else}}
-        <div class="column"><a class="ui right floated primary button" href="mailto:{{ profile.email}}">Inquire</a></div>
+        <div class="column"><a class="ui right floated primary button inquire" href="mailto:{{ profile.email}}">Inquire</a></div>
         {{/if}}
 
-        {{#if profile.github }}
-          <div class="column"><a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a></div>
-        {{/if}}
-        {{#if profile.facebook }}
-          <div class="column"><a href="https://facebook.com/{{ profile.facebook}}"><i class="big facebook icon"></i></a></div>
-        {{/if}}
-        {{#if profile.instagram }}
-          <div class="column"><a href="https://instagram.com/{{ profile.instagram}}"><i class="big instagram icon"></i></a></div>
-        {{/if}}
       </div>
     </div>
+
+    <div class="overlay" id="{{profile._id}}Overlay">
+      <div class="ui container">
+        <div class="ui segment" style="margin-top: 25px; margin-bottom: 15px" id="{{profile._id}}Form">
+          <div class="ui dividing header">
+            Contact {{profile.username}} regarding "{{profile.itemName}}"
+          </div>
+          <form class="ui equal width form user-message-form {{ errorClass }}">
+            {{> TextArea_Form_Control label="Message" name="Message" required=true placeholder="Type your message here." errorMessage=(fieldError "message")}}
+            <p>Your account name and default email are automatically included with this message. Please abide by our terms of use when contacting the seller. Future contact regarding this message will be sent by the seller to the UH email associated with your account unless otherwise specified in the message.</p>
+            <button class="ui primary button" type="submit">Send Message</button>
+            <button class="ui orange button cancelButton" type="click">Cancel</button>
+          </form>
+        </div>
+        <div class="ui segment" style="margin-top: 25px; margin-bottom: 15px;display: none" id="{{profile._id}}MessageConfirmation">
+          <p class="ui centered text">Your message has been sent. Please allow some time for the seller to respond. Thank you for your patience</p>
+          <button class="ui primary button cancelButton" type="click">Close</button>
+        </div>
+      </div>
+    </div>
+
   {{/if}}
   </div>
 

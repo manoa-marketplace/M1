@@ -62,7 +62,10 @@ Template.Edit_Item_Page.events({
     const askingPrice = event.target.Price.value;
     const phoneNumber = event.target.Telephone.value;
     const selectedCategories = _.filter(event.target.Categories.selectedOptions, (option) => option.selected);
-    const categories = _.map(selectedCategories, (option) => option.value);
+    let categories = _.map(selectedCategories, (option) => option.value);
+    if(categories.length === 0) {
+      categories = null;
+    }
 
     const updatedProfileData = { itemName, picture, description, email, askingPrice,
       username, phoneNumber, categories };
@@ -86,7 +89,9 @@ Template.Edit_Item_Page.events({
   'click .delete'(event) {
     event.preventDefault();
     const username = FlowRouter.getParam('username'); // schema requires username.
-    Profiles.remove(FlowRouter.getParam('_id'));
-    FlowRouter.go(`/${username}/browse`);
+    if(confirm("Delete this listing?")) {
+      Profiles.remove(FlowRouter.getParam('_id'));
+      FlowRouter.go(`/${username}/browse`);
+    }
   },
 });

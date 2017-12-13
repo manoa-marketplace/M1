@@ -1,2 +1,3 @@
 import './directory-profile.html';
-import './directory-profile';
+import './directory-profile.js';
+import './directory-profile.css';

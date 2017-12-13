@@ -12,7 +12,7 @@
           <div class="ui segment">
             <h3 style="display: inline-block">{{message.from}}</h3>
             <p style="float: right;display: inline-block">{{message.date}}</p>
-            <p>{{message.msg}}</p>
+            <p style="white-space: pre">{{message.msg}}</p>
           </div>
         {{/each}}
       {{/if}}
@@ -27,7 +27,7 @@
     <div class="ui segment">
       {{#each message in announcements}}
 
-          <p><h4 style="display: inline-block">{{message.date}}:&nbsp;&nbsp;</h4>{{message.msg}}</p>
+          <p style="white-space: pre"><h4 style="display: inline-block;">{{message.date}}:&nbsp;&nbsp;</h4>{{message.msg}}</p>
 
 
       {{/each}}
@@ -46,8 +46,9 @@
       {{#each message in userMessages}}
         <div class="ui segment">
           <h3 style="display: inline-block">From {{message.from}}</h3>
-          <p style="float: right;display: inline-block">{{message.date}}</p>
-          <p>{{message.msg}}</p>
+          <p style="float: right;display: inline-block;">{{message.date}}</p>
+          <p style="white-space: pre">{{message.msg}}</p>
+          <button class="ui primary button resolve" id={{message._id}}>Resolve</button>
         </div>
       {{/each}}
     {{/if}}

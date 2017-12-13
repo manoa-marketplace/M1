@@ -47,9 +47,18 @@ Template.Home_Page.helpers({
   },
   // User Messages
   userMessages() {
-    return Messages.find({ $and: [{ type: 'user' }, { to: Meteor.user().profile.name }] });
+    return Messages.find({ $and: [{ type: 'user' }, { to: Meteor.user().profile.name }, { status: 'unread' }] });
   },
   userMessagesEmpty() {
-    return Messages.find({ $and: [{ type: 'user' }, { to: Meteor.user().profile.name }] }).count() === 0;
+    return Messages.find({ $and: [{ type: 'user' }, { to: Meteor.user().profile.name }, { status: 'unread' }] }).count() === 0;
   },
+});
+
+Template.Home_Page.events({
+  'click .resolve'(event) {
+    event.preventDefault();
+    if(confirm("Resolve this message? You will be unable to view it in the future if you do.")) {
+      Messages.update(event.target.id, { $set: { status: 'resolved' } })
+    }
+  }
 });

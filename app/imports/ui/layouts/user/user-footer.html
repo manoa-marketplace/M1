@@ -4,8 +4,30 @@
       <hr>
       By using Manoa Marketplace, you agree to our <a>terms of use</a>.
       <br><br>
-      <a>Contact an Admin</a>
+      <a href="#" class="contactAdmin">Contact an Admin</a>
       <br><br>
     </div>
+
   </footer>
+  <div class="overlay contactAdminOverlay" id="adminMessageOverlay">
+    <div class="ui container">
+      <div class="ui segment" style="margin-top: 25px; margin-bottom: 15px" id="adminMessageForm">
+        <div class="ui dividing header">
+          Administrator Message Form
+        </div>
+        <form class="ui equal width form admin-message-form {{ errorClass }}">
+
+            {{> TextArea_Form_Control label="Message" name="Message" required=true placeholder="Type your message here." errorMessage=(fieldError "message")}}
+          <p>All messages sent from this form will be viewable by all page moderators. Messages are not sent anonymously. Please indicate whether you would require a response in the message. Unnecessarily spamming this feature may be used as a strike against your account. Please abide by our terms of use when contacting any party including page moderators. Any future contact regarding this message will be sent to the UH email associated with your account unless otherwise specified in the message.</p>
+          <button class="ui primary button" type="submit">Send Message</button>
+          <button class="ui orange button closeButton" type="click">Cancel</button>
+        </form>
+
+      </div>
+      <div class="ui segment" style="margin-top: 25px; margin-bottom: 15px;display: none" id="adminMessageConfirmation">
+        <p class="ui centered text">Your message has been sent. Please allow some time for one of our moderators to review it. Thank you for your patience</p>
+        <button class="ui primary button closeButton" type="click">Close</button>
+      </div>
+    </div>
+  </div>
 </template>

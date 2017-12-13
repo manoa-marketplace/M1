@@ -18,8 +18,6 @@ Template.User_Header.events({
       console.log(FlowRouter.getParam('username'));
 
       FlowRouter.go(`/${FlowRouter.getParam('username')}/search/${query.trim()}`);
-    } else {
-      console.log('NO SEARCH QUERY');
     }
   },
 });
