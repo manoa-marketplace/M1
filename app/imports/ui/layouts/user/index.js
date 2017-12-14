@@ -5,5 +5,6 @@ import './user-footer.js';
 import './user-footer.css';
 import './user-header.html';
 import './user-header.js';
+import './user-header.css';
 import './user-layout.css';
 import './user-layout.html';

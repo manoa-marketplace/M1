@@ -1,5 +1,24 @@
 <template name="User_Header">
 
+    <div class="overlay" id="eula" style="{{#if acceptedEULA}}display: none{{else}}display: block{{/if}}">
+      <div class="ui container">
+        <div class="ui segment" style="margin-top: 25px">
+          <h3>Terms of Use Notice</h3>
+          <p>In order to use Manoa Marketplace, you must agree to our terms of use.</p>
+          <ul>
+            <li>Do not try to sell items that are illegal or do not fit into one of Manoa Markeplace's predefined categories.</li>
+            <li>Please be respectful in all communications with others through Manoa Marketplace.</li>
+            <li>Do not haggle prices with sellers. The list price is to be taken as the sell price.</li>
+            <li>Do not spam messages or otherwise abuse the services provided by Manoa Marketplace.</li>
+            <li>Please take down your sold listings within a timely fashion following sale.</li>
+            <li>Failure to abide by Manoa Marketplace's terms of use is grounds for an account ban or further punishments depending on the offence</li>
+          </ul>
+          <p>In addition you agree to follow the UH Manoa Code of Conduct in regard to all actions preformed while using Manoa Markeplace and its services.</p>
+          <button class="ui primary button agree">Agree</button>
+        </div>
+      </div>
+    </div>
+
   <div style="width: 100%;height: 100px; background-image: url('/images/preview.png');background-size: cover;min-width:551px">
     <div style="float:right;margin-top: 10px; margin-right: 10px">
       {{> Cas_Login }}

@@ -61,6 +61,11 @@ Template.User_Footer.events({
     document.getElementById("adminMessageForm").style.display = "block";
     document.getElementById("adminMessageConfirmation").style.display = "none";
   },
+  'click .termsofuse'(event, instance) {
+    event.preventDefault();
+
+    document.getElementById("eula").style.display = "block";
+  },
 });
 
 function off() {
